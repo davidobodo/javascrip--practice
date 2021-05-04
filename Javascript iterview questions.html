@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Palindrome checker</title>
+	<script type="text/javascript">
+
+
+//..................................................................
+		// for(i=0;i<24;i++){
+        //         window.setTimeout(function(){
+        //             console.log(i)
+        //         }, i*100)
+        //     }
+
+//........//fizz buzz.................................................
+            // for(i=1; i<=100; i++){
+            //     david(i)
+            // }
+
+            // function david(value){
+            //     if(value%3 == 0 && value%5 ==0) return console.log("fizzBuzz");
+            //     if(value%3 ==0) return console.log("fizz");
+            //     if(value%5 ==0) return console.log("buzz");
+            //     else return console.log(value)
+            // }
+
+			// for(let i=0; i<100;){
+			// 	console.log((++i%3 ? '' : 'fizz') + (i%5 ? '': 'buzz') || i)
+			// }
+
+
+			// for (let i = 0; i<=100; i++){
+			// 	console.log((i%3 ? '' : 'fizz') + (i%5 ? '' : 'buzz') || i)
+			// }
+
+//........//Highest common factor......................................
+			// function david(a,b){
+			// 			const highestNumber=[a, b];
+			// 			const x=Math.min.apply(null,highestNumber)
+			// 			let hcf = '';
+			// 			for(i=1;i<x;i++){
+			// 				if(a%i==0 && b%i==0){
+			// 					hcf=i
+			// 					console.log(typeof(hcf))
+			// 				}
+			// 			}
+			// 			console.log(hcf)
+			// 		}
+
+			// david(225,1000)
+
+//........//Sharing the toys...........................................
+			// function game(noc, not){
+			// 			index=0
+			// 			while(not>0){
+			// 				index++
+			// 				not--
+			// 				if(index==noc && not!=0){index=0}
+			// 			}
+			// 			console.log(index)
+			// 		}
+
+			// 		game(8,30)	
+	</script>
+
+
+
+</head>
+
+<body>
+	<h1>
+
+	</h1>
+	<p>Open the console to see results</p>
+	<input type="text" placeholder="text" />
+	<script>
+		//......Reddit questions........................
+		// 1.
+		// let a = {
+		// 	b: {
+		// 		c: 4
+		// 	}
+		// }
+		// let d = a
+		// a.b.c = 5
+		// console.log(a.b.c)
+		// console.log(d.b.c)
+		2.
+		// setup debounce
+		const input = document.querySelector('input')
+		// const debounce = (func, timer) => {
+		// 	let timeId = null;
+		// 	console.log(this)
+
+		// 	return (...args) => {
+		// 		if (timeId) {
+		// 			clearTimeout(timeId)
+		// 		}
+		// 		console.log(this)
+		// 		timeId = setTimeout(() => {
+		// 			func(...args);
+		// 		}, timer)
+		// 	}
+		// }
+
+		function debounce(fn, wait) {
+			var timeout;
+			console.log({ arguments })
+
+			return function () {
+				var args = arguments
+				// var context = this;
+				if (timeout) {
+					clearTimeout(timeout)
+				}
+				timeout = setTimeout(function () {
+					fn(args)
+					// fn.call(context, args)
+				}, wait)
+			}
+		}
+
+		input.addEventListener('keyup', debounce((e) => {
+			console.log(e)
+			console.log(e[0].target.value)
+		}, 5000)
+		)
+
+
+
+
+
+
+	</script>
+</body>
+
+</html>

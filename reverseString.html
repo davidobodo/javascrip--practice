@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Reverse String</title>
+    <script>
+        // 1. decreasing for loop
+        // const reverseString = str => {
+        //     let revString = '';
+        //     for (let i = str.length - 1; i >= 0; i--) {
+        //         revString = revString + str[i];
+        //     }
+        //     console.log(revString)
+        // }
+
+        // 2. increasing for loop
+        // const reverseString = str => {
+        //     let revString = '';
+        //     for(let i = 0; i< str.length; i++){
+        //         revString = str[i] + revString
+        //     }
+        //     console.log(revString)
+        // }
+
+        // 3. for of loop
+        // function reverseString(str){
+        //     let revString = '';
+        //     for (let char of str){
+        //         revString = char + revString
+        //     }
+        //     console.log(revString)
+        // }
+
+        // 4
+        function reverseString(str){
+            let revString = str.split('')
+            // .reverse().join('')
+            console.log(revString)
+        }
+
+        // 5. forEach
+        // function reverseString(str){
+        //     let revString = '';
+        //     str.split('').forEach((char) => {
+        //         revString = char + revString
+        //     })
+
+        //     console.log(revString)
+        // }
+
+        // 6. Reduce
+        // function reverseString(str){
+        //     const revString = str.split('').reduce((total, char)=> char + total
+        //     , '')
+        //     console.log(revString)
+        // }
+
+        reverseString('david')
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

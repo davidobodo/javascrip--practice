@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div>
+        <input type="text" name='input'>
+    </div>
+
+
+    <script>
+
+        //generating a random number
+
+
+        function getRand_one(a, b = 1) {
+            return Math.round(Math.random() * (a - b)) + b;
+        }
+
+        function getRand_two(a, b = 1) {
+            return Math.floor(Math.random() * (a - b + 1)) + b;
+        }
+
+        function shuffleArray(array) {
+            var length = array.length;
+            for (i = 0; i < length; i++) {
+                var j = getRand_one(length) - 1;
+                [array[i], array[j]] = [array[j], array[i]]
+            }
+            return array;
+        }
+
+        function isPalindrome(str) {
+            return str === str.split('').reverse().join('');
+        }
+
+        function longestString() {
+            var longest = '';
+            var all_longest = [];
+            for (i = 0; i < arguments.length; i++) {
+                if (arguments[i].length > longest.length) {
+                    longest = arguments[i];
+                    if (longest === arguments[i]) {
+                        all_longest.push(longest, arguments[i])
+                    }
+                }
+            }
+            if (longest.length > all_longest[0]) {
+                return longest
+            }
+            return all_longest
+        }
+
+        document.querySelector('input').addEventListener('keyup', function (e) {
+            console.log(e)
+            console.log(this); //input
+        })
+        // document.querySelector('input').addEventListener('keyup', (e) => {
+        //     console.log(e)
+        //     console.log(this);//window object
+        // })
+
+
+        // document.querySelector('input').addEventListener('keyup', function () { debounce(handleChange, 4000) })
+
+
+        // document.querySelector('input').addEventListener('keyup', handleChange) //input
+        // document.querySelector('input').addEventListener('keyup', () => handleChange()) //window
+        // document.querySelector('input').addEventListener('keyup', (e) => handleChange(e)) //window
+        // document.querySelector('input').addEventListener('keyup', function () { handleChange() }) //window
+        // document.querySelector('input').addEventListener('keyup', () => console.log(this)) //window
+
+
+
+
+
+
+
+        // function handleChange(e) {
+        //     console.log(this)
+        // }
+
+        // function debounce(func, time) {
+        //     console.log(this)
+        //     var timeId = null;
+        //     function debounced() {
+        //         const context = this;
+        //         if (timeId) {
+        //             clearInterval(timeId)
+        //         }
+        //         timeId = setTimeout(function () {
+        //             // func.call(context, args)
+        //         }, time)
+        //     }
+        //     return debounced
+        // }
+
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+<html>
+
+<head>
+    <title>Ajax experiments from what i have learnt do far</title>
+    <meta charset="UTF-8">
+    <link rel="style/stylesheet">
+</head>
+
+<body>
+    <h1>I am trying what i have learnt in XMLHttpRequest</h1>
+    <button onclick="example1()">Click Me</button>
+
+    <script>
+        // example 1
+        function example1() {
+            const davidsRequest = new XMLHttpRequest();
+            davidsRequest.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    console.log(this.responseText)// this keyword refers to davidsRequest
+                }
+            }
+            davidsRequest.open("GET", "ajax_info.txt",true);//specifies the request, the url must be hosted on the same server as this web page
+            davidsRequest.send()//sends the request
+        }
+
+        // example 2 ---outputing a table from a request 
+        function example2(){
+            const davidsSecondRequest = new XMLHttpRequest();
+            davidsSecondRequest.onreadystatechange = function (){
+                if(this.readyState==4 && this.status == 200){
+                    myfunction(this)
+                }
+            }
+            davidsSecondRequest.open("GET", "thisurl", true)
+            davidsSecondRequest.send()
+        }
+
+        function myfunction(xml){
+            var xmlDoc = xml.responseText;//the response text gotten in my example2 function should be stored here
+            var table = "<tr>\
+                            <th>Artist</th>\
+                            <th>Title</th>\
+                        </tr>";
+            var x = xmlDoc.getElementsByTagName("CD")//my responseText has tags, get the tag name with CD and store it inside a variable
+            for(i=0;i<x.length;i++){
+                table += "<tr><td>" 
+                            + x[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue
+                            +"</td>\
+                                <td>"
+                            + x[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue
+                            +"</td>\
+                        </tr>";              
+            }
+            document.getElementsByTagName("body").innerHTML=table
+        }
+
+        davidsSecondRequest = {
+            onreadystatechange : function(){},
+            readyState,
+            responseText,
+            status,
+            statusText,
+            open : function(){},
+            send : function () {},
+
+        }
+
+
+    </script>
+</body>
+
+</html>

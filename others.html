@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Recursion versus for loop</title>
+	<script type="text/javascript">
+
+
+		function decreaseFor(number){
+			for(let i=number; i>0; i--){
+				console.log(i, 'for loop')
+				// debugger
+			}
+		}
+		decreaseFor(5)
+
+		function decreaseRec(number){
+			if(number === 0) return
+			console.log(number, 'recursive')
+			// debugger
+			decreaseRec(number-1)
+		}
+
+		decreaseRec(5)
+
+		//Recursion is better because it doesnt need extra variables for counting, it just passes the updated parameter between each call
+
+
+
+
+
+	</script>
+</head>
+<body>
+	<h1>Just a simple comparison between recursion and for loop</h1>
+
+</body>
+</html>

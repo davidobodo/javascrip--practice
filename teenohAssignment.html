@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        const _ = {
+            map (list, callback){
+                var newArray = [];
+                for(var i=0; i<list.length; i++){
+                    newArray.push(callback(list[i], i))
+                }
+                console.log(newArray)
+            },
+            forEach (list, callback){
+                for(var i=0; i<list.length; i++){
+                    list[i] = (callback(list[i], i))
+                }
+            },
+            filter (list, callback){
+                var newArray = [];
+                for(var i=0; i<list.length; i++){
+                    if(callback(list[i], i) === true){
+                        newArray.push(list[i])
+                    }
+                }
+                console.log(newArray)
+            }
+        }
+
+
+
+
+
+
+
+
+        async function loadGame(userName){
+            try{
+                const user = await login(userName);
+                const info = await getPlayerInfo(use.id);
+            }
+            catch(error){
+                throw error;
+            }
+        }
+
+        
+    </script>
+</body>
+</html>

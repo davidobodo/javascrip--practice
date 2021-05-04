@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Wisdom's assignment</title>
+</head>
+
+<body>
+    <script>
+        let reg = prompt("what")
+        let regC = /[A-Z]/g;
+        let regW = /[0-9]/g;
+        let regS = /\W+/g
+        let regs = /[a-z]/g
+
+        if (regC.test(reg) && regW.test(reg) && regS.test(reg) && regs.test(reg)) {
+            if (reg.length < 8) {
+                alert("password must be more than 8 characters")
+            }
+            else { alert("correct wisdom") }
+        }
+        else {
+            alert("password must be case-senaitive, alphanumeric and contain soecial character")
+        }
+
+    </script>
+</body>
+
+</html>

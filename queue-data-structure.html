@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Queue() {
+            var queue = [];
+
+            this.print = function () {
+                console.log(queue)
+            }
+
+            // var queue = this.queue
+            this.enqueue = function (val) {
+                return queue.unshift(val)
+            }
+
+            this.dequeue = function () {
+                return queue.pop()
+            }
+
+            this.remove = function (val) {
+                // console.log(queue.indexOf(val))
+                // var ind = queue.findIndex((item) => {
+                //     return val == item
+                // })
+
+                var ind = queue.indexOf(val)
+                return queue.splice(ind, 1)
+
+                // var ret = 
+
+                // queue = ret
+                // console.log(queue)
+
+                // return queue.filter(item => {
+                //     return item !== val
+                // })
+            }
+
+            this.length = function () {
+                console.log(queue.length);
+            }
+
+            this.isEmpty = function () {
+                console.log(queue.length === 0);
+            }
+        }
+
+        var first = new Queue();
+        first.enqueue('david')
+        first.enqueue('rose')
+        first.enqueue('ada')
+        first.enqueue('vicky')
+
+        var second = new Queue();
+        second.enqueue(1)
+        second.enqueue(2)
+        second.enqueue(3)
+
+        // first.remove('ada')
+        // first.remove('david')
+        // first.remove('rose')
+        first.print();
+        second.print();
+        console.log(first)
+
+    </script>
+</body>
+
+</html>

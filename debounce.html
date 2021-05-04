@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Debounce</title>
+</head>
+
+<body>
+    <p>Open the console to see results</p>
+    <input type="text" placeholder="text" />
+
+    <script>
+
+        //-----------------------------------------------------
+        //Tutorial
+        //-----------------------------------------------------
+        // const debounce = (func, timer) => {
+        //     let timeId = null;
+
+        //     return (fn) => {
+        //         if (timeId) {
+        //             clearTimeout(timeId)
+        //         }
+        //         console.log(fn)
+        //         timeId = setTimeout(() => {
+        //             func(fn);
+        //         }, timer)
+        //     }
+        // }
+
+
+
+        //-----------------------------------------------------
+        //Tutorial- implemented with anonymous functions
+        //-----------------------------------------------------
+        // function debounce(func, timer) {
+        //     let timeId = null;
+
+        //     return function (myArg) {
+        //         if (timeId) {
+        //             clearTimeout(timeId)
+        //         }
+        //         timeId = setTimeout(function () {
+        //             func(myArg)
+        //         }, timer)
+        //     }
+        // }
+
+
+
+        //-----------------------------------------------------
+        //successful mistake
+        //-----------------------------------------------------
+        // function debounce(fn, wait) {
+        //     var timeout;
+
+        //     return function () {
+        //         var args = arguments
+        //         var context = this;
+        //         console.log(this)
+        //         if (timeout) {
+        //             clearTimeout(timeout)
+        //         }
+        //         timeout = setTimeout(function () {
+        //             fn.call(context, args)
+        //         }, wait)
+        //     }
+        // }
+        // const handleValidity = () => {
+        //     console.log('i just want to see how this will be taken')
+        // }
+
+        function debounce(fn, timer) {
+            let timerId = null;
+            let context = this;
+
+            return function () {
+                let args = arguments;
+                if (timerId) {
+                    clearTimeout(timerId)
+                }
+                timerId = setTimeout(() => { fn.apply(context, args) }, timer)
+            }
+        }
+
+
+
+        const input = document.querySelector('input');
+        const handleValidity = (e) => {
+            console.log(e.target.value, "im here")
+        }
+        //-----------------------------------------------------
+        //calling the debounce
+        //-----------------------------------------------------
+        // const handleEvent = (a, b) => {
+        //     console.log(a, b, 'in handleEvent')
+        // }
+
+        // input.addEventListener('keyup', handleEvent('david', 32))
+        input.addEventListener('keyup', debounce(handleValidity, 6000))
+
+    </script>
+
+</body>
+
+</html>

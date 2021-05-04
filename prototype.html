@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        function User(name, age, car) {
+            Object.create({ name, age, car })
+            // this.name = name;
+            // this.age = age;
+            // this.car = function () {
+            //     console.log(`${name} drives ${car} car`)
+            // }
+
+        }
+
+        User.prototype.login = function () {
+            console.log(`${this.name} has logged in`)
+        }
+
+        function Admin(...args) {
+            User.apply(this, args)
+            this.password = 1234
+        }
+
+        Admin.prototype = Object.create(User.prototype)
+
+        Admin.prototype.isAdmin = function () {
+            console.log(this.name, 'is an admin')
+        }
+
+        Admin.prototype.school = [];
+
+        var userOne = new User('david', 24, 'kia')
+        var userTwo = new User('ada', 27, 'benz')
+        var userThree = new Admin('seun', 25, 'lexus')
+
+        console.log(userOne)
+
+    </script>
+</body>
+
+</html>
